@@ -4,9 +4,9 @@
 require 'hpricot'
 def time_to_hour_min_sec time
   sec = time / 1000.0
-  hours = sec / 3600
-  minutes = sec / 60
-  seconds = sec.to_i
+  hours = sec.to_i / 3600
+  minutes = (sec.to_i - (hours * 3600)) / 60
+  seconds = sec - (hours * 3600) - (minutes * 60)
   milliseconds = (sec - sec.to_i) * 1000
   "%02d:%02d:%02d,%03d" % [hours, minutes, seconds, milliseconds]
 end
