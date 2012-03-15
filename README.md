@@ -12,4 +12,4 @@ Convert SMI to SRT
 
 Convert CP949 SMI to UTF-8 SMI
     $ ruby src/cp949_smi_to_utf8_smi.rb samples/cp949.smi
-    $ ruby src/cp949_smi_to_utf8_smi.rb -f *.smi
+    $ ./src/cp949_smi_to_utf8_smi.rb -f *.smi

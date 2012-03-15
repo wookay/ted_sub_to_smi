@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # cp949_smi_to_utf8_smi.rb
 #                               wookay.noh at gmail.com
 
@@ -14,7 +15,7 @@ if __FILE__ == $PROGRAM_NAME
     overwrite = true
     options.delete '-f'
   end
-  Dir[options.join].each do |filename|
+  options.each do |filename|
     if File.exist? filename
       f = open(filename)
       cp949_data = f.read 
@@ -26,6 +27,7 @@ if __FILE__ == $PROGRAM_NAME
           f = open(filename, 'w')
           f.write(utf8_data)
           f.close
+          puts "converted #{filename}"
         end
       else
         puts cp949_smi_to_utf8_smi(cp949_data) rescue nil
